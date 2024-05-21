@@ -1,3 +1,4 @@
+
 import { Schema, model } from 'mongoose';
 import {
   Guardian,
@@ -11,25 +12,25 @@ const userNameSchema = new Schema<UserName>({
   firstName: {
     type: String,
     required: [true, 'First Name is required'],
-    maxlength: [20, 'First Name cannot be more than 20 character'],
+    // maxlength: [20, 'First Name cannot be more than 20 character'],
     trim: true,
-    validate: {
-      validator: function (value: string) {
-        const firstNameStr = value.charAt(0).toUpperCase() + value.slice(1);
-        return firstNameStr === value;
-      },
-      message: '{VALUE} is not in capitalize format'
-    },
+    // validate: {
+    //   validator: function (value: string) {
+    //     const firstNameStr = value.charAt(0).toUpperCase() + value.slice(1);
+    //     return firstNameStr === value;
+    //   },
+    //   message: '{VALUE} is not in capitalize format'
+    // },
   },
   middleName: {
     type: String,
-    maxlength: [20, 'Middle Name cannot be more than 20 character'],
+    // maxlength: [20, 'Middle Name cannot be more than 20 character'],
     trim: true,
   },
   lastName: {
     type: String,
     required: [true, 'Last Name is required'],
-    maxlength: [20, 'Last Name cannot be more than 20 character'],
+    // maxlength: [20, 'Last Name cannot be more than 20 character'],
     trim: true,
   },
 });
