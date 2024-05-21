@@ -5,7 +5,7 @@ const createStudentIntoDB = async (studentData: TStudent) => {
   if (await Student.isUserExist(studentData.id)) {
     throw new Error('User already exists!');
   }
-  
+
   const result = await Student.create(studentData); //built-in static method
 
   //   const student = new Student(studentData); //create a new instance
@@ -29,8 +29,14 @@ const getSigleStudentFromDB = async (id: string) => {
   return result;
 };
 
+const deleteStudentFromDB = async (id: string) => {
+    const result = await Student.updateOne({ id }, {isDeleted: true});
+    return result;
+  };
+
 export const StudentServices = {
   createStudentIntoDB,
   getAllStudentsFromDB,
   getSigleStudentFromDB,
+  deleteStudentFromDB,
 };
